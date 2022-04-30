@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block body %}
-    <h2>{{ request.user.email }}</h2>
+    <h2 id="user-email">{{ request.user.email }}</h2>
 
     <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
     <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
@@ -21,14 +21,24 @@
                 From: <input disabled class="form-control" value="{{ request.user.email }}">
             </div>
             <div class="form-group">
-                To: <input id="compose-recipients" class="form-control">
+                To: <input id="compose-recipients" class="form-control" placeholder="Recipients address">
             </div>
             <div class="form-group">
                 <input class="form-control" id="compose-subject" placeholder="Subject">
             </div>
             <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input type="submit" class="btn btn-primary"/>
+            <input type="submit" id="send-email" class="btn btn-primary" value="Send"/>
         </form>
+    </div>
+
+    <div id="read-email-view">
+        <h3 id="read-subject"></h3>
+        <div id="read-header">
+            <div id="read-timestamp" class="timestamp-div"></div>
+            <div id="read-from" class="sender-div"></div>
+            <div id="read-to" class="recipients-div"></div>
+        </div>
+        <div id="read-body"></div>
     </div>
 {% endblock %}
 

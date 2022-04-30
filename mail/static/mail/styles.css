@@ -1,3 +1,27 @@
 textarea {
     min-height: 400px;
 }
+
+.single-eml-block {
+    border-style: solid;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.read {
+    background-color: gray;
+}
+
+.timestamp-div {
+    float: right;
+}
+
+.timestamp-div, .sender-div, .recipients-div {
+    font-size: 24px;
+}
+
+#read-header {
+    background-color: burlywood;
+    padding: 5px;
+}
