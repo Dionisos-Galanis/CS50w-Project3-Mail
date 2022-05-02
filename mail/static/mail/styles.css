@@ -25,3 +25,8 @@ textarea {
     background-color: burlywood;
     padding: 5px;
 }
+
+#reply, #archive, #unarchive {
+    margin-top: 30px;
+    margin-left: 20px;
+}

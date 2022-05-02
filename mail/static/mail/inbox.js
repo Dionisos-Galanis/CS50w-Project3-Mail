@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#archived').addEventListener('click', () => load_mailbox('archive'));
   document.querySelector('#compose').addEventListener('click', () => compose_email('', '', ''));
 
-  // document.querySelector('#send-email').addEventListener('click', send_email);
+  document.querySelector('#send-email').addEventListener('click', function(event){
+    send_email();
+    event.preventDefault();
+  });
 
   // By default, load the inbox
   load_mailbox('inbox');
@@ -102,6 +105,7 @@ function read_email(emailId, mailbox = 'undefined') {
 }
 
 function send_email() {
+  console.log('Send email start');
   fetch('/emails', {
     method: 'POST',
     body: JSON.stringify({
@@ -114,7 +118,8 @@ function send_email() {
   .then(result => {
       // Print result
       console.log(result);
-      load_mailbox('sent'); 
+      load_mailbox('sent');
+      console.log('after load sent') 
   });
 }
 
